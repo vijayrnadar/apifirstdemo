@@ -1,0 +1,24 @@
+title: LiabilityRequest
+type: object
+x-tags:
+  - BRE
+examples:
+  - id: string
+  - id: string
+properties:
+  workFlowName:
+    type: string
+  identityNumber:
+    type: string
+  isInjured:
+    type: boolean
+  hasGOSI:
+    type: boolean
+  hasMTPL:
+    type: boolean
+  hasPA:
+    type: boolean
+  HasMedical:
+    type: boolean
+  liabilityPercentage:
+    type: number

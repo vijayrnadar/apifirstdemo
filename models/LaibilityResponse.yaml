@@ -1,0 +1,15 @@
+title: LaibilityResponse
+type: object
+properties:
+  identityNumber:
+    type: string
+  MTPLPercentage:
+    type: number
+  PAPercentage:
+    type: number
+  GOSIPercentage:
+    type: number
+  MedicalPercentage:
+    type: number
+  HospitalPercentage:
+    type: number
