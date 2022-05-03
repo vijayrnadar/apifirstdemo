@@ -7,10 +7,10 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  /v1.0/workflows/operation:
+  /v1.0/workflows/Execute:
     parameters: []
     post:
-      summary: ''
+      summary: ExecuteRule
       operationId: post-v1.0-workflows-WORKFLOW_NAME-?operation=execute
       responses:
         '200':
@@ -62,6 +62,8 @@ paths:
                     hasPA: true
                     hasMedical: true
                     liabilityPercentage: 0
+      tags:
+        - breapi
 components:
   schemas:
     LaibilityResponse.yaml:
