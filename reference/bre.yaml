@@ -7,7 +7,7 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  /v1.0/workflows/?operation=execute:
+  /v1.0/workflows/operation:
     parameters: []
     post:
       summary: ''
@@ -20,6 +20,26 @@ paths:
               schema:
                 $ref: ../models/LaibilityResponse.yaml
           headers: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  errorCode:
+                    type: number
+                  errorMessage:
+                    type: string
+                    minLength: 1
+                required:
+                  - errorCode
+                  - errorMessage
+                x-examples:
+                  example-1:
+                    errorCode: 2222
+                    errorMessage: Input validation
       description: Used by Najm MOH Injury System to calculate Financial Liability Report result. The API accepts accident parties input data with their insurance policies coverage to calculate liability percentages for each party
       parameters:
         - $ref: '#/components/parameters/jsoncontent'
