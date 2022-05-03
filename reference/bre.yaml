@@ -29,11 +29,18 @@ paths:
             application/json:
               schema:
                 $ref: ../models/LaibilityResponse.yaml
-          headers:
-            header-0:
-              schema:
-                type: string
+          headers: {}
       description: Used by Najm MOH Injury System to calculate Financial Liability Report result. The API accepts accident parties input data with their insurance policies coverage to calculate liability percentages for each party
+      parameters:
+        - $ref: '#/components/parameters/jsoncontent'
+        - $ref: '#/components/parameters/bearertoken'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LiabilityRequest.yaml'
 components:
   schemas:
     LaibilityResponse.yaml:
@@ -60,3 +67,18 @@ components:
           type: boolean
         liabilityPercentage:
           type: number
+  parameters:
+    jsoncontent:
+      name: content-type
+      in: header
+      required: false
+      schema:
+        type: string
+      description: application/json
+    bearertoken:
+      name: Authorization
+      in: header
+      required: false
+      schema:
+        type: string
+      description: Bearer XXXXXXXXXXXXXXXXXXXXXXXXSSSSSSSSSSSSSSSSSSSS
