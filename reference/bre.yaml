@@ -7,18 +7,8 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  '/v1.0/workflows/{WORKFLOW_NAME}/?operation=execute':
-    parameters:
-      - schema:
-          type: string
-        name: WORKFLOW_NAME
-        in: path
-        required: true
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-v1.0-workflows-WORKFLOW_NAME-?operation=execute
+  /v1.0/workflows/?operation=execute:
+    parameters: []
     post:
       summary: ''
       operationId: post-v1.0-workflows-WORKFLOW_NAME-?operation=execute
@@ -41,6 +31,17 @@ paths:
               type: array
               items:
                 $ref: '#/components/schemas/LiabilityRequest.yaml'
+            examples:
+              example-1:
+                value:
+                  - workFlowName: string
+                    identityNumber: string
+                    isInjured: true
+                    hasGOSI: true
+                    hasMTPL: true
+                    hasPA: true
+                    hasMedical: true
+                    liabilityPercentage: 0
 components:
   schemas:
     LaibilityResponse.yaml:
