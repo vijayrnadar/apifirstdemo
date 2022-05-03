@@ -1,0 +1,62 @@
+openapi: 3.1.0
+info:
+  title: bre
+  version: '1.0'
+  description: Used by Najm MOH Injury System to calculate Financial Liability Report result. The API accepts accident parties input data with their insurance policies coverage to calculate liability percentages for each party
+  summary: Financial Liability Report
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/v1.0/workflows/{WORKFLOW_NAME}/?operation=execute':
+    parameters:
+      - schema:
+          type: string
+        name: WORKFLOW_NAME
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-v1.0-workflows-WORKFLOW_NAME-?operation=execute
+    post:
+      summary: ''
+      operationId: post-v1.0-workflows-WORKFLOW_NAME-?operation=execute
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/LaibilityResponse.yaml
+          headers:
+            header-0:
+              schema:
+                type: string
+      description: Used by Najm MOH Injury System to calculate Financial Liability Report result. The API accepts accident parties input data with their insurance policies coverage to calculate liability percentages for each party
+components:
+  schemas:
+    LaibilityResponse.yaml:
+      type: array
+      items:
+        $ref: ../models/LaibilityResponse.yaml
+    LiabilityRequest.yaml:
+      title: LiabilityRequest.yaml
+      type: object
+      properties:
+        workFlowName:
+          type: string
+        identityNumber:
+          type: string
+        isInjured:
+          type: boolean
+        hasGOSI:
+          type: boolean
+        hasMTPL:
+          type: boolean
+        hasPA:
+          type: boolean
+        hasMedical:
+          type: boolean
+        liabilityPercentage:
+          type: number
